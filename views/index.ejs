@@ -17,9 +17,9 @@
       <button class="btn btn-success" type="submit">Shorten</button>
     </form>
     <% if (shortUrls != null) {%>
-    <table class="table table-striped" style="background-color: antiquewhite;">
+    <table class="table table-striped d-none d-md-table" style="background-color: antiquewhite;">
       <thead>
-        <tr class="accordion-toggle collapsed">
+        <tr>
           <th style="color:black">Full URL</th>
           <th style="color:black">Short URL</th>
 
@@ -35,6 +35,23 @@
       </tbody>
     </table>
     <% } %>
+    <% if (shortUrls != null) {%>
+        <table class="d-inline-block d-md-none table table-stripe" style="background-color: antiquewhite;">
+          <thead>
+            <tr>
+              <th style="color:black">Short URL</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+                <% shortUrls.forEach(shortUrl => { %>
+                <tr>
+                    <td><a style="color:black; word-wrap:break-word" href="<%= shortUrl.short %>">https://shortenurlfast.herokuapp.com/<%= shortUrl.short %></a></td>
+                </tr>
+                <% }) %>
+          </tbody>
+        </table>
+        <% } %>
   </div>
 </body>
 </html>
